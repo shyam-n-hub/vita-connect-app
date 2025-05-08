@@ -4,12 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HealthCare Platform</title>
+  <title>Contact Us - HealthCare Platform</title>
   <link rel="stylesheet" href="styles.css">
   <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
 </head>
 <body>
   <header>
@@ -21,7 +20,7 @@
         </a>
         <div class="nav-links" id="navLinks">
           <a href="index.html">Home</a>
-          <a href="contact.html">Contact</a>
+          <a href="contact.html" class="active">Contact</a>
           <a href="login.html" class="auth-link">Login</a>
           <a href="signup.html" class="auth-link">Sign Up</a>
           <a href="#" id="dashboardLink" class="hidden">Dashboard</a>
@@ -36,58 +35,64 @@
     </nav>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <div class="hero-content">
-          <h1>Healthcare at Your Fingertips</h1>
-          <p>Connect with doctors, manage your health records, and get medical advice from anywhere.</p>
-          <div class="hero-buttons">
-            <a href="signup.html" class="btn btn-primary">Get Started</a>
-            <a href="#features" class="btn btn-outline">Learn More</a>
+  <main class="page-container blue-bg">
+    <div class="container">
+      <div class="contact-header">
+        <h1>Contact Us</h1>
+        <p>Have questions or need assistance? Reach out to our team and we'll get back to you as soon as possible.</p>
+      </div>
+      
+      <div class="contact-grid">
+        <div class="contact-form-container">
+          <form id="contactForm" class="contact-form">
+            <div class="form-group">
+              <label for="contactName">Name</label>
+              <input type="text" id="contactName" placeholder="Your name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="contactEmail">Email</label>
+              <input type="email" id="contactEmail" placeholder="your.email@example.com" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="contactMessage">Message</label>
+              <textarea id="contactMessage" placeholder="How can we help you?" rows="6" required></textarea>
+            </div>
+            
+            <button type="submit" id="contactSubmitBtn" class="btn btn-primary btn-full">Send Message</button>
+          </form>
+        </div>
+        
+        <div class="contact-info">
+          <h2>Our Information</h2>
+          
+          <div class="info-section">
+            <h3>Address</h3>
+            <p>123 Healthcare Blvd<br>Medical District, MD 20814</p>
+          </div>
+          
+          <div class="info-section">
+            <h3>Contact</h3>
+            <p>contact@healthcare-platform.com<br>(555) 123-4567</p>
+          </div>
+          
+          <div class="info-section">
+            <h3>Hours</h3>
+            <p>
+              Monday - Friday: 8:00 AM - 8:00 PM<br>
+              Saturday: 9:00 AM - 5:00 PM<br>
+              Sunday: Closed
+            </p>
+          </div>
+          
+          <div class="urgent-help">
+            <p class="urgent-title">Need urgent assistance?</p>
+            <p>Call our 24/7 support line: (555) 999-8888</p>
           </div>
         </div>
-        <div class="hero-image">
-          <img src="https://source.unsplash.com/random/600x400/?healthcare" alt="Healthcare">
-        </div>
       </div>
-    </section>
-
-    <section id="features" class="features">
-      <div class="container">
-        <h2>Key Features</h2>
-        <div class="feature-grid">
-          <div class="feature-card">
-            <div class="feature-icon">📋</div>
-            <h3>Easy Registration</h3>
-            <p>Quick and simple registration process for patients and doctors.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">🩺</div>
-            <h3>Digital Consultations</h3>
-            <p>Submit your health issues and receive doctor's advice online.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">💊</div>
-            <h3>Prescription Management</h3>
-            <p>Get and manage your prescriptions digitally.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">📱</div>
-            <h3>Accessible Platform</h3>
-            <p>Access healthcare services from any device, anywhere.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta">
-      <div class="container">
-        <h2>Ready to take control of your healthcare?</h2>
-        <p>Join thousands of users who have simplified their healthcare experience.</p>
-        <a href="signup.html" class="btn btn-primary">Sign Up Now</a>
-      </div>
-    </section>
+    </div>
   </main>
 
   <footer>
@@ -129,7 +134,10 @@
     </div>
   </footer>
 
+  <div id="toast" class="toast"></div>
+  
   <script src="firebase-config.js"></script>
   <script src="app.js"></script>
+  <script src="contact.js"></script>
 </body>
 </html>

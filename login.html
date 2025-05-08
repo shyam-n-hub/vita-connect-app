@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HealthCare Platform</title>
+  <title>Login - HealthCare Platform</title>
   <link rel="stylesheet" href="styles.css">
   <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
@@ -22,10 +22,8 @@
         <div class="nav-links" id="navLinks">
           <a href="index.html">Home</a>
           <a href="contact.html">Contact</a>
-          <a href="login.html" class="auth-link">Login</a>
+          <a href="login.html" class="auth-link active">Login</a>
           <a href="signup.html" class="auth-link">Sign Up</a>
-          <a href="#" id="dashboardLink" class="hidden">Dashboard</a>
-          <button id="logoutBtn" class="hidden">Logout</button>
         </div>
         <div class="menu-toggle" id="menuToggle">
           <span></span>
@@ -36,58 +34,39 @@
     </nav>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <div class="hero-content">
-          <h1>Healthcare at Your Fingertips</h1>
-          <p>Connect with doctors, manage your health records, and get medical advice from anywhere.</p>
-          <div class="hero-buttons">
-            <a href="signup.html" class="btn btn-primary">Get Started</a>
-            <a href="#features" class="btn btn-outline">Learn More</a>
-          </div>
+  <main class="page-container blue-bg">
+    <div class="container">
+      <div class="auth-card">
+        <div class="auth-header">
+          <h1>Login</h1>
+          <p>Enter your credentials to access your account</p>
         </div>
-        <div class="hero-image">
-          <img src="https://source.unsplash.com/random/600x400/?healthcare" alt="Healthcare">
-        </div>
-      </div>
-    </section>
-
-    <section id="features" class="features">
-      <div class="container">
-        <h2>Key Features</h2>
-        <div class="feature-grid">
-          <div class="feature-card">
-            <div class="feature-icon">📋</div>
-            <h3>Easy Registration</h3>
-            <p>Quick and simple registration process for patients and doctors.</p>
+        <form id="loginForm" class="auth-form">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="name@example.com" required>
           </div>
-          <div class="feature-card">
-            <div class="feature-icon">🩺</div>
-            <h3>Digital Consultations</h3>
-            <p>Submit your health issues and receive doctor's advice online.</p>
+          <div class="form-group">
+            <div class="password-header">
+              <label for="password">Password</label>
+              <a href="#" class="forgot-password">Forgot password?</a>
+            </div>
+            <input type="password" id="password" placeholder="••••••••" required>
           </div>
-          <div class="feature-card">
-            <div class="feature-icon">💊</div>
-            <h3>Prescription Management</h3>
-            <p>Get and manage your prescriptions digitally.</p>
+          <button type="submit" id="loginBtn" class="btn btn-primary btn-full">Login</button>
+          
+          <!-- Demo credentials -->
+          <div class="demo-credentials">
+            <p class="demo-title">Demo Credentials:</p>
+            <p><span>Doctor:</span> doctor@example.com / password</p>
+            <p><span>Patient:</span> patient@example.com / password</p>
           </div>
-          <div class="feature-card">
-            <div class="feature-icon">📱</div>
-            <h3>Accessible Platform</h3>
-            <p>Access healthcare services from any device, anywhere.</p>
-          </div>
+        </form>
+        <div class="auth-footer">
+          <p>Don't have an account? <a href="signup.html">Sign up</a></p>
         </div>
       </div>
-    </section>
-
-    <section class="cta">
-      <div class="container">
-        <h2>Ready to take control of your healthcare?</h2>
-        <p>Join thousands of users who have simplified their healthcare experience.</p>
-        <a href="signup.html" class="btn btn-primary">Sign Up Now</a>
-      </div>
-    </section>
+    </div>
   </main>
 
   <footer>
@@ -129,7 +108,9 @@
     </div>
   </footer>
 
+  <div id="toast" class="toast"></div>
+  
   <script src="firebase-config.js"></script>
-  <script src="app.js"></script>
+  <script src="auth.js"></script>
 </body>
 </html>
